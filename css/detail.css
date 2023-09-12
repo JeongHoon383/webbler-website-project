@@ -1,0 +1,95 @@
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.detail_content {
+  position: relative;
+  width: min(95%, 1300px);
+  margin: 20vh auto;
+}
+@media screen and (min-width : 1000px) {
+  .detail_content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .detail_content .section_summary {
+    position: sticky;
+    top: 20vh;
+    width: 30%;
+    margin-bottom: 0;
+  }
+  .detail_content section.detail {
+    width: 63%;
+  }
+}
+.detail_content .section_summary a {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  color: white;
+  border: 1px solid black;
+  background-color: black;
+  transition: all 0.5s;
+}
+.detail_content .section_summary a:hover {
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+}
+.detail_content section.detail img {
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.detail_content section.detail img.detail_img {
+  margin-bottom: 10vh;
+}
+.detail_content section.detail .textbox {
+  margin: 10vh 0;
+  -webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  transition: all 1.5s;
+}
+.detail_content section.detail .textbox.active {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.detail_content section.detail .textbox h3 {
+  font-weight: 600;
+  position: relative;
+}
+.detail_content section.detail .textbox h3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-color: var(--green);
+  mix-blend-mode: multiply;
+}
+.detail_content section.detail .textbox p {
+  max-width: 600px;
+  font-size: 0.9em;
+  margin: 15px 0;
+}
+.detail_content section.detail .textbox .meta {
+  display: flex;
+  font-size: 0.9em;
+}
+.detail_content section.detail .textbox .meta dl {
+  flex: 1;
+}
+.detail_content section.detail .textbox .meta dl dt {
+  max-width: 100px;
+  font-weight: 600;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid black;
+}/*# sourceMappingURL=detail.css.map */

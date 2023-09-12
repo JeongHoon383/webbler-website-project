@@ -1,0 +1,113 @@
+@use 'mixin' as m;
+.works-bg{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top:0;left:0;
+  background: var(--blue);
+  p{
+    font-size: min(15vw,8em);
+    font-weight: 700;
+    letter-spacing: 3vw;
+    white-space: nowrap;
+    color: rgba(#FFF, .7);
+  }
+  #particles-js{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.works-content{
+  width: min(95%, 1400px);
+  margin: 0 auto;
+  padding-top: 25vh;
+  figure{
+    margin-bottom: 25vh;
+    @media #{m.$minLg}{
+      //1,5 오른쪽, 2,4,6,8 중앙, 3,7
+      &:nth-child(4n+1){margin-left: auto;}
+      &:nth-child(even){margin-left: auto; margin-right: auto;}
+      width: 30%;
+    }//minLg
+    @media #{m.$md}{
+      width: 70%;
+      &:nth-child(odd){margin-left: auto;}
+    }//md
+    @media #{m.$maxSm}{
+      width: 100%;
+    }//maxLg
+    a{
+      &:hover{
+        div{
+          border-color:var(--green);
+        }
+      }//a:hover
+      div{
+        overflow: hidden;
+        border: 5px solid #CCC;
+        box-shadow: 0 0 20px rgba(#000,.2);
+        transition: all .7s;
+        img{
+          width: 100%;
+        }//img
+      }//div
+      figcaption{
+        color: #FFF;
+        h2{
+          display: inline-block;
+          position: relative;
+          margin: 15px 0;
+          font-size: 1.5em;
+          font-weight: 600;
+          &::before{
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 30%;
+            bottom:0;
+            left:0;
+            background: var(--green);
+            mix-blend-mode: multiply;
+          }
+        }//h2
+        p{
+          white-space: nowrap;
+          overflow: hidden;
+          display: flex;
+          br{
+            display: none;
+          }
+          span{
+            font-size: 1.2em;
+            font-weight: 600;
+            animation: rolling 5s infinite linear;
+            @keyframes rolling{
+              0%{transform: translateX(0);}
+              100%{transform: translateX(-100%);}
+            }//rolling
+          }//span
+        }//p     
+      }//figcaption
+    }//a
+  }//figure
+}//.works-content
+
+.cursor{
+  position: fixed;
+  pointer-events: none;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  transform: scale(0);
+  transition: transform 1s;
+  border-radius: 50%;
+  background: rgba(#00FBBE, .7);
+  z-index: 6;
+  top:0;
+  color: #FFF;
+}
